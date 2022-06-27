@@ -32,58 +32,52 @@ const classes = {
         backgroundColor: "#4ed1a1",
         position: "absolute",
         outline: '5px solid #404040',
-        marginLeft: '-50px',
       },
+    lineBox: {
+        width: '550px',
+        height: '20vh',
+    },
     line: {
-        width: '10px',
-        height: '50px',
         backgroundColor: SM.colors.tertiary,
         position: "absolute",
+        height: 'inherit',
         marginLeft: '270px',
+        width: '10px',
     },
     leftLine: {
         width: '10px',
-        height: '50px',
+        marginLeft: '-30px',
+        height: 'inherit',
         backgroundColor: SM.colors.tertiary,
         position: "absolute",
-        marginLeft: "-30px",
+        // marginLeft: "20px",
     },
     rightLine: {
         width: '10px',
-        height: '50px',
+        height: 'inherit',
         backgroundColor: SM.colors.tertiary,
         position: "absolute",
         marginLeft: '570px', 
     }
 };
 
-function Circle(props) {
+function LineContainer(props) {
 
-    var chosen = classes.circle;
-    if (props.side == 'left'){
-        chosen = classes.leftCircle;
-    } else if (props.side == 'right'){
-        chosen = classes.rightCircle;
-    }
-
-    var chosenLine = classes.line;
-    if (props.side == 'left'){
-        chosenLine = classes.leftLine;
-    } else if (props.side == 'right'){
-        chosenLine = classes.rightLine;
-    }
-
-
-    if(props.notCircle === "true"){
-        return(
-            <div style={chosenLine} />
-        );
-    } else{
-        return (
-            <div style={chosen} />
-        );
-    }
+    // isCenter="true"
+    return (
+        <div style={classes.lineBox} >
+            {props.isCenter === "true" &&
+                <div style={classes.line}/>
+            }
+            {props.isRight === "true" &&
+                <div style={classes.rightLine}/>
+            }
+            {props.isLeft === "true" &&
+                <div style={classes.leftLine}/>
+            }
+        </div>
+    );
     
 }
 
-export default Circle;
+export default LineContainer;

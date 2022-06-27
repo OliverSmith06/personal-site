@@ -8,12 +8,24 @@ import {
 
 const classes = {
   line: {
+    marginLeft: '-5px',
     width: '10px',
+    position: 'absolute',
     height: '500px',
     backgroundColor: SM.colors.tertiary,
   },
   toRightCurve: {
     position: 'absolute',
+  },
+  toRight: {
+    height: '500px'
+  },
+  leftLine: {
+    marginLeft: '-305px',
+    width: '10px',
+    position: 'absolute',
+    height: '500px',
+    backgroundColor: SM.colors.tertiary,
   },
 };
 
@@ -25,14 +37,17 @@ const data = [
   [300, 500],
 ];
 
-function BranchRight() {
+function BranchRight(props) {
 
   return (
-        <div>
+        <div style={classes.toRight}>
           <svg style={classes.toRightCurve} width="550" height="500" xmlns="http://www.w3.org/2000/svg">
             <BasisCurve data={data} showPoints={false} strokeWidth={10} stroke={SM.colors.tertiary} />
           </svg>
           <div style={classes.line} />
+          {props.hasLeft &&
+            <div style={classes.leftLine} />
+          }
         </div>
   );
 }

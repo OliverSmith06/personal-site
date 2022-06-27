@@ -4,8 +4,11 @@ import { SM } from './SM';
 import React, { useState } from 'react';
 import BranchRight from './components/branch-right';
 import MergeRight from './components/merge-right';
+import MergeLeft from './components/merge-left';
 import Circle from './components/circle';
 import CircleContainer from './components/circle-container';
+import LineContainer from './components/line-container';
+import BranchLeft from './components/branch-left';
 import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, FadeOut, Move, MoveIn, MoveOut, Sticky, StickyIn, StickyOut, Zoom, ZoomIn, ZoomOut } from "react-scroll-motion";
 import {
   NaturalCurve,
@@ -116,24 +119,34 @@ function App() {
           <Circle side="right" notCircle="true" />
           <Circle side="center" notCircle="true" />
         </CircleContainer>
+        <BranchLeft hasRight="true" />
         <CircleContainer>
           <Circle side="right" notCircle="false" />
           <Circle side="center" notCircle="true" />
+          <Circle side="left" notCircle="true" />
         </CircleContainer>
         <CircleContainer>
           <Circle side="right" notCircle="true" />
           <Circle side="center" notCircle="false" />
+          <Circle side="left" notCircle="false" />
         </CircleContainer>
         <CircleContainer>
           <Circle side="right" notCircle="false" />
           <Circle side="center" notCircle="true" />
+          <Circle side="left" notCircle="true" />
         </CircleContainer>
-        
-
-        <MergeRight />
+        <MergeRight hasLeft="true"  />
+        <MergeLeft />
+        <BranchRight />
+        <BranchLeft hasRight="true" />
         <CircleContainer>
           <Circle side="center" notCircle="false" />
+          <Circle side="left" notCircle="false" />
+          <Circle side="right" notCircle="false" />
         </CircleContainer>
+        <LineContainer isCenter="true" isLeft="true" isRight="true" />
+        <MergeLeft hasRight="true" />
+        <MergeRight />
         <div style={classes.line} />
         {/* <div style={classes.circle} /> */}
       </div>

@@ -8,48 +8,50 @@ import {
 
 const classes = {
   line: {
-    marginLeft: '-5px',
+    marginLeft: '270px',
     width: '10px',
     position: 'absolute',
     height: '500px',
     backgroundColor: SM.colors.tertiary,
   },
-  leftLine: {
-    marginLeft: '-305px',
+  toLeftCurve: {
+    position: 'absolute',
+    marginLeft: '-30px',
+  },
+  leftMerge: {
+    height: '500px',
+    marginLeft: '-550px',
+  },
+  rightLine: {
+    marginLeft: '570px',
     width: '10px',
     position: 'absolute',
     height: '500px',
     backgroundColor: SM.colors.tertiary,
-  },
-  toRightCurve: {
-    position: 'absolute',
-  },
-  toRight: {
-    height: '500px'
   }
 };
 
 const data = [
-    [300, 0],
-    [300,150],
-    [200,250],
-    [0,300],
-    [0, 500],
+  [5, 0],
+  [5, 200],
+  [205, 250],
+  [305, 350],
+  [305, 500]
 ];
 
-function MergeRight(props) {
+function MergeLeft(props) {
 
   return (
-        <div style={classes.toRight}>
-          <svg style={classes.toRightCurve} width="550" height="500" xmlns="http://www.w3.org/2000/svg">
+        <div style={classes.leftMerge}>
+          <svg style={classes.toLeftCurve} width="560" height="500" xmlns="http://www.w3.org/2000/svg">
             <BasisCurve data={data} showPoints={false} strokeWidth={10} stroke={SM.colors.tertiary} />
           </svg>
           <div style={classes.line} />
-          {props.hasLeft &&
-            <div style={classes.leftLine} />
+          {props.hasRight &&
+            <div style={classes.rightLine} />
           }
         </div>
   );
 }
 
-export default MergeRight;
+export default MergeLeft;
