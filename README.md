@@ -1,4 +1,4 @@
-# Welcome
+# Welcome (HEAVY WIP)
 
 Hi! My name is Oliver and I'm a software engineer. My goal with this project was to create a website that would act as my resume. 
 I find that as a software engineer, there is no better resume to show my skills then a website that I've created!
